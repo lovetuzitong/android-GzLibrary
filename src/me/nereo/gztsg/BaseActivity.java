@@ -1,7 +1,7 @@
 package me.nereo.gztsg;
 
-import roboguice.activity.RoboActivity;
+import roboguice.activity.RoboFragmentActivity;
 
-public class BaseActivity extends RoboActivity{
+public class BaseActivity extends RoboFragmentActivity{
 
 }

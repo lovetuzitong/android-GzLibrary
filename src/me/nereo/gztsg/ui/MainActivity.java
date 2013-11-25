@@ -16,11 +16,13 @@
 
 package me.nereo.gztsg.ui;
 
+import me.nereo.gztsg.BaseActivity;
 import me.nereo.gztsg.R;
 import android.app.ActionBar;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -31,10 +33,9 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.SearchView.OnQueryTextListener;
 import android.widget.Toast;
-import roboguice.activity.RoboFragmentActivity;
 import roboguice.inject.InjectView;
 
-public class MainActivity extends RoboFragmentActivity {
+public class MainActivity extends BaseActivity {
 
 	@InjectView(R.id.drawer_layout)
 	DrawerLayout mDrawerLayout;
@@ -90,7 +91,7 @@ public class MainActivity extends RoboFragmentActivity {
 	}
 	
 	private void attachSearchBookFragment(){
-		BookSearchFragment fragment = new BookSearchFragment();
+		Fragment fragment = Fragment.instantiate(this, SearchHistoryFragment.class.getName());
 		FragmentManager fm = getSupportFragmentManager();
 		fm.beginTransaction().replace(R.id.content_frame, fragment).commit();
 	}
